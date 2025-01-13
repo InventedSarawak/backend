@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "start": "node dist/server.js",
-        "dev": "nodemon -r dotenv/config --experimental-json-modules src/server.ts",
+        "dev": "pnpm tsx watch src/server.ts",
         "build": "tsc",
         "format": "prettier --write ./src",
         "lint": "eslint \"src/**/*.{ts,tsx}\""
@@ -40,6 +40,7 @@
         "eslint": "^9.18.0",
         "nodemon": "^3.1.9",
         "prettier": "^3.4.2",
+        "tsx": "^4.19.2",
         "typescript": "^5.7.3"
     }
 }
