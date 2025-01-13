@@ -1,7 +1,20 @@
 import { Schema, model } from 'mongoose'
 import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2'
+import { TUser } from './user.model'
 
-const videoSchema = new Schema(
+export type TVideo = {
+    videoFile: string
+    thumbnail: string
+    title: string
+    description: string
+    duration: number
+    views: number
+    isPublished: boolean
+    owner: TUser
+    plugin: () => void
+}
+
+const videoSchema = new Schema<TVideo>(
     {
         videoFile: {
             type: String,
@@ -42,4 +55,4 @@ const videoSchema = new Schema(
 
 videoSchema.plugin(mongooseAggregatePaginate)
 
-export const Video = model('Video', videoSchema)
+export const Video = model<TVideo>('Video', videoSchema)
