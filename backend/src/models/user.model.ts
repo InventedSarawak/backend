@@ -11,6 +11,7 @@ export type TUser = {
     watchHistory: string[]
     password: string
     refreshToken: string
+    _id: string
     isModified: (field: string) => boolean
     isPasswordCorrect: (password: string) => Promise<boolean>
     generateAccessToken: () => string

@@ -5,14 +5,14 @@ class ApiError extends Error {
     success: boolean
     errors: string[]
 
-    constructor(statusCode: number, message: string = 'Something went wrong', errors = [], stack = '') {
+    constructor(statusCode: number, message: string = 'Something went wrong', cb: () => void = () => {}, errors = [], stack = '') {
         super(message)
         this.statusCode = statusCode
         this.data = null
         this.message = message
         this.success = false
         this.errors = errors
-
+        cb()
         if (stack) {
             this.stack = stack
         } else {
